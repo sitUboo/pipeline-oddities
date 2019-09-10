@@ -1,8 +1,14 @@
-node {
-   echo 'Hello World'
-   sh "touch apple.txt"
+stage("stage 1"){
+ node("cdPipelineLINUX"){
+  dir("test"){
+    sh "ls -latr"
+  }
+ }
 }
-
-node {
-  sh "ls -l"
+stage("stage 2"){
+  node("cdPipelineLINUX"){
+    dir("test"){
+      sh "ls -latr"
+    }
+  }
 }
